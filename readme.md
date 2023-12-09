@@ -5,6 +5,8 @@ This is a latent space medical image restoration implementation based on https:/
 ## Quick Start
 
 - [Set-up](#Setup)
+- [Load Our Trained Weights](#LoadPretrained)
+- [Train your own Model](#Self-Train)
 - [Evaluation](#Evaluation)
 - [Acknowledgement](#Acknowledgement)
 
@@ -34,7 +36,7 @@ vae
 └─diffusion_pytorch_model.safetensors
 ```
 
-## Use Our Pretrained Model
+## LoadPretrained
 
 
 You can download out pretrained unet model from the google drive [link](https://drive.google.com/file/d/1actPH17G3ksi051_hsGTIVSJeqTL0BbH/view?usp=sharing), then unzip it and put it in a folder.
@@ -59,7 +61,7 @@ python generate_impainting.py
 --mask=<mask path>
 ```
 
-## Train Your Model
+## Self-Train
 
 You can train a new model from scratch. We provide two training codes for unet. Before the training begins, you need to complete the steps of the Environment Setup.
 
