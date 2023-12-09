@@ -1,4 +1,4 @@
-# Latent Artifusion
+# Latent ArtiFusion
 
 This is a latent space medical image restoration implementation based on https://github.com/zhenqi-he/ArtiFusion Engineering. The project is trained and tested on the diffusers framework. Based on https://arxiv.org/abs/2307.14262, we implemented a unique generated pipeline in `pipeline_latent_diffusion.py`.
 
