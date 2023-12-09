@@ -1,0 +1,8 @@
+diffusers[training]
+accelerate
+datasets
+scipy
+einops
+timm
+matplotlib
+transformers
