@@ -124,4 +124,13 @@ tensorboard --logdir="<output_dir>/logs"
 ```
 ## Evaluation
 
+To evaluate the reconstruction quality, we test our model on an artifact-free histology dataset with a total 462 images sized at 256X256, and then compare the image similarities between reconstructed images and original images to evaluate the performance. 
+
+To evaluate your model performance, modify the relevant paths in test/eval.sh and then run:
+
+```
+cd test
+sh eval.sh
+```
+
 ## Acknowledgement
