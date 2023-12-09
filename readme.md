@@ -25,8 +25,7 @@ vae
 ├─diffusion_pytorch_model.bin
 ├─diffusion_pytorch_model.fp16.bin
 ├─diffusion_pytorch_model.fp16.safetensors
-├─diffusion_pytorch_model.safetensors
-└─list.txt
+└─diffusion_pytorch_model.safetensors
 ```
 
 ## Use Our Pretrained Model
