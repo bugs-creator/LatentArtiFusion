@@ -136,7 +136,7 @@ cd test
 sh eval.sh
 ```
 ## Others
-### Validation_Pretrained-VAE
+### Verification_Pretrained-VAE
 To reproduce our validation experiments of pre-trained VAE for medical histology images, firstly select some test images and put they all into a folder, then replace the PATH_TO_IAMGES in the following commands by the path to the test folders and also replace the PATH_TO_VAE by the downloaded pretrained VAE in the previous part, and run the command, you will get images named end with afterVAE in that path.
 
 ```
@@ -155,3 +155,4 @@ cd test
 python visualize_latent_diffusion.py --image_path='PATH_TO_PNG_IMAGE' --save_path="PATH_TO SAVE_FOLDER" --vae_path='PATH_TO_VAE'
 ```
 ## Acknowledgement
+Our implementation is based on [Diffusers](https://huggingface.co/docs/diffusers/index) framework, and makes improvements based on the previous work [ArtiFusion](https://github.com/zhenqi-he/ArtiFusion).
