@@ -137,11 +137,11 @@ sh eval.sh
 ```
 
 ## Validation_Pretrained-VAE
-To reproduce our validation experiments of pre-trained VAE for medical histology images, firstly select some test images and put they all into a folder, then replace the PATH_TO_IAMGES in the following commands by the path to the test folders, and run the command, you will get images named end with afterVAE in that path.
+To reproduce our validation experiments of pre-trained VAE for medical histology images, firstly select some test images and put they all into a folder, then replace the PATH_TO_IAMGES in the following commands by the path to the test folders and also replace the PATH_TO_VAE by the downloaded pretrained VAE in the previous part, and run the command, you will get images named end with afterVAE in that path.
 
 ```
 cd test
-python validate_pretrained_VAR.py --image_path="PATH_OF_IMAGES"
+python validate_pretrained_VAR.py --image_path="PATH_OF_IMAGES" --vae_path="PATH_TO_VAE"
 ```
 
 ## Acknowledgement
