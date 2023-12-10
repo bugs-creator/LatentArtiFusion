@@ -10,10 +10,12 @@ import argparse
 
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
+# function to create dir
 def create_dir(dir):
     if not os.path.exists(dir):
         os.mkdir(dir)
 
+# function to convert numpy array to pil
 def numpy_to_pil(images):
     """
     Convert a numpy image or a batch of images to a PIL image.
@@ -29,13 +31,18 @@ def numpy_to_pil(images):
 
     return pil_images
 
+# main part
 def main():
+    # read input image path and vae path
     parser = argparse.ArgumentParser()
     parser.add_argument('--image_path', required=True, help="path to the image") 
+    parser.add_argument('--vae_path', required=True, help="path to the vae") 
 
     args = parser.parse_args()
 
     image_path = args.image_path
+    vae_path = args.vae_path
+    # get all png images under given path
     image_list = glob.glob(os.path.join(image_path,"*.png"))
     # print(image_list)
 
@@ -43,9 +50,9 @@ def main():
         images = [augmentations(image.convert("RGB")) for image in examples]
         return {"input": images}
 
-
+    # load pretrained vae
     vae = AutoencoderKL.from_pretrained(
-        "./vae", revision=False,map_location=device
+        vae_path, revision=False,map_location=device
     )
 
     vae.requires_grad_(False)
@@ -60,7 +67,8 @@ def main():
             transforms.Normalize([0.5], [0.5]),
         ]
     )
-    
+
+    # loop all images, and reconstruct they
     for imgP in image_list:
 
         image_name = image_path.split('/')[-1]
@@ -83,6 +91,7 @@ def main():
         image = image.cpu().permute(0, 2, 3, 1).detach().numpy()
         image = numpy_to_pil(image)[0]
 
+        # save the decoded results from pretrained var
         save_name = imgP.replace(".png","_afterVAE" + '.png')
         image.save(save_name)
     # image.show()
