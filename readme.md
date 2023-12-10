@@ -8,7 +8,7 @@ This is a latent space medical image restoration implementation based on https:/
 - [Load Our Trained Weights](#LoadPretrained)
 - [Train your own Model](#Self-Train)
 - [Evaluation](#Evaluation)
-- [Validation of Pre-trained VAE](#Validation_Pretrained-VAE)
+- [Others](#Others)
 - [Acknowledgement](#Acknowledgement)
 
 
@@ -143,6 +143,11 @@ To reproduce our validation experiments of pre-trained VAE for medical histology
 cd test
 python validate_pretrained_VAR.py --image_path="PATH_OF_IMAGES" --vae_path="PATH_TO_VAE"
 ```
+
+<p align="center">
+  <img src="./images/validation_pretrained_VAE.png" />
+</p>
+
 ### Visualize Latent Data
 To Visualize the compressed image and mask in latent space, replace PATH_TO_PNG_IMAGE with a path to a single image, PATH_TO SAVE_FOLDER with a folder, and PATH_TO_VAE with the path to downloaded pre-trained VAE, and run the following code.
 ```
