@@ -135,13 +135,18 @@ To evaluate your model performance, modify the relevant paths in test/eval.sh an
 cd test
 sh eval.sh
 ```
-
-## Validation_Pretrained-VAE
+## Others
+### Validation_Pretrained-VAE
 To reproduce our validation experiments of pre-trained VAE for medical histology images, firstly select some test images and put they all into a folder, then replace the PATH_TO_IAMGES in the following commands by the path to the test folders and also replace the PATH_TO_VAE by the downloaded pretrained VAE in the previous part, and run the command, you will get images named end with afterVAE in that path.
 
 ```
 cd test
 python validate_pretrained_VAR.py --image_path="PATH_OF_IMAGES" --vae_path="PATH_TO_VAE"
 ```
-
+### Visualize Latent Data
+To Visualize the compressed image and mask in latent space, replace PATH_TO_PNG_IMAGE with a path to a single image, PATH_TO SAVE_FOLDER with a folder, and PATH_TO_VAE with the path to downloaded pre-trained VAE, and run the following code.
+```
+cd test
+python visualize_latent_diffusion.py --image_path='PATH_TO_PNG_IMAGE' --save_path="PATH_TO SAVE_FOLDER" --vae_path='PATH_TO_VAE'
+```
 ## Acknowledgement
