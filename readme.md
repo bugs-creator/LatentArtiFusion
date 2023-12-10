@@ -25,8 +25,8 @@ Then generate the default config of training:
 accelerate config default
 ```
 
-Then download the pretrained VAE from [here](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main/vae). Put the file in a directory as below:
-
+Then download the pre-trained VAE from [here](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main/vae). Put the file in a directory as below:
+(For manually downloading all files in the folder named vae, you may need to rename the downloaded var_config.json to config.json)
 ```
 vae
 ├─config.json
@@ -39,7 +39,7 @@ vae
 ## LoadPretrained
 
 
-You can download out pretrained unet model from the google drive [link](https://drive.google.com/file/d/1actPH17G3ksi051_hsGTIVSJeqTL0BbH/view?usp=sharing), then unzip it and put it in a folder.
+You can download our pretrained unet model from the google drive [link](https://drive.google.com/file/d/1actPH17G3ksi051_hsGTIVSJeqTL0BbH/view?usp=sharing), then unzip it and put it in a folder.
 
 The following script will generate an image randomly.
 
@@ -65,9 +65,9 @@ python generate_impainting.py
 
 You can train a new model from scratch. We provide two training codes for unet. Before the training begins, you need to complete the steps of the Environment Setup.
 
-You can download our dataset from the google drive [link](https://drive.google.com/drive/folders/13SDZzcgtO3RIdZIiteb-jo3hUtGAqOuq). Our model is trained on `Training_data/trainB`. You can also generate your own dataset by putting images in a directory.
+You can download our dataset from the Google Drive [link](https://drive.google.com/drive/folders/13SDZzcgtO3RIdZIiteb-jo3hUtGAqOuq). Our model is trained on `Training_data/trainB`. You can also generate your own dataset by putting images in a directory.
 
-Here is the launch script of training.
+Here is the launch script for training.
 
 ```
 accelerate launch train_latent_diffusion.py \
@@ -90,13 +90,13 @@ accelerate launch train_latent_diffusion.py \
 --dataloader_num_workers=1
 ```
 
-If you decide continue your last train, you can add the following args:
+If you decide to continue your last train, you can add the following args:
 
 ```
 --resume_from_checkpoint=<checkpoint dir> 
 ```
 
-We also provide a training script on another kind of unet. But it's less effective on latent space. Try it if you're interested.
+We also provide a training script on another kind of UNet. But it's less effective on latent space. Try it if you're interested.
 
 ```
 accelerate launch train_latent_swinunet.py \
@@ -126,7 +126,7 @@ tensorboard --logdir="<output_dir>/logs"
 ```
 ## Evaluation
 
-To evaluate the reconstruction quality, we test our model on an artifact-free histology dataset with a total 462 images sized at 256X256, and then compare the image similarities between reconstructed images and original images to evaluate the performance. 
+To evaluate the reconstruction quality, we test our model on an artifact-free histology dataset with a total of 462 images sized at 256X256 and then compare the image similarities between reconstructed images and original images to evaluate the performance. 
 
 To evaluate your model performance, modify the relevant paths in test/eval.sh and then run:
 
