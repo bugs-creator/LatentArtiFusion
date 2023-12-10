@@ -8,6 +8,7 @@ This is a latent space medical image restoration implementation based on https:/
 - [Load Our Trained Weights](#LoadPretrained)
 - [Train your own Model](#Self-Train)
 - [Evaluation](#Evaluation)
+- [Validation of Pre-trained VAE](#Validation_Pretrained-VAE)
 - [Acknowledgement](#Acknowledgement)
 
 
@@ -133,6 +134,14 @@ To evaluate your model performance, modify the relevant paths in test/eval.sh an
 ```
 cd test
 sh eval.sh
+```
+
+## Validation_Pretrained-VAE
+To reproduce our validation experiments of pre-trained VAE for medical histology images, firstly select some test images and put they all into a folder, then replace the PATH_TO_IAMGES in the following commands by the path to the test folders, and run the command, you will get images named end with afterVAE in that path.
+
+```
+cd test
+python validate_pretrained_VAR.py --image_path="PATH_OF_IMAGES"
 ```
 
 ## Acknowledgement
