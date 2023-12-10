@@ -1,9 +1,17 @@
-# Latent Artifusion
+# Latent ArtiFusion
 
 This is a latent space medical image restoration implementation based on https://github.com/zhenqi-he/ArtiFusion Engineering. The project is trained and tested on the diffusers framework. Based on https://arxiv.org/abs/2307.14262, we implemented a unique generated pipeline in `pipeline_latent_diffusion.py`.
 
+## Quick Start
 
-## Environment Setup
+- [Set-up](#Setup)
+- [Load Our Trained Weights](#LoadPretrained)
+- [Train your own Model](#Self-Train)
+- [Evaluation](#Evaluation)
+- [Acknowledgement](#Acknowledgement)
+
+
+## Setup
 
 First, make sure you have **torch 2+ with cuda** (Important! We only achieved GPU version) included in your environment, then install the environment:
 
@@ -17,7 +25,7 @@ Then generate the default config of training:
 accelerate config default
 ```
 
-Then download the pretrained VAE from https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main/vae. Put the file in a directory as below:
+Then download the pretrained VAE from [here](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main/vae). Put the file in a directory as below:
 
 ```
 vae
@@ -28,10 +36,10 @@ vae
 └─diffusion_pytorch_model.safetensors
 ```
 
-## Use Our Pretrained Model
+## LoadPretrained
 
 
-You can download out pretrained unet model from https://drive.google.com/file/d/1actPH17G3ksi051_hsGTIVSJeqTL0BbH/view?usp=sharing, then unzip it and put it in a folder.
+You can download out pretrained unet model from the google drive [link](https://drive.google.com/file/d/1actPH17G3ksi051_hsGTIVSJeqTL0BbH/view?usp=sharing), then unzip it and put it in a folder.
 
 The following script will generate an image randomly.
 
@@ -53,11 +61,11 @@ python generate_impainting.py
 --mask=<mask path>
 ```
 
-## Train Your Model
+## Self-Train
 
 You can train a new model from scratch. We provide two training codes for unet. Before the training begins, you need to complete the steps of the Environment Setup.
 
-You can download our dataset from https://drive.google.com/drive/folders/13SDZzcgtO3RIdZIiteb-jo3hUtGAqOuq. Our model is trained on `Training_data/trainB`. You can also generate your own dataset by putting images in a directory.
+You can download our dataset from the google drive [link](https://drive.google.com/drive/folders/13SDZzcgtO3RIdZIiteb-jo3hUtGAqOuq). Our model is trained on `Training_data/trainB`. You can also generate your own dataset by putting images in a directory.
 
 Here is the launch script of training.
 
@@ -116,3 +124,15 @@ During the train, you can use the tensorboard to monitor the train process:
 ```
 tensorboard --logdir="<output_dir>/logs"
 ```
+## Evaluation
+
+To evaluate the reconstruction quality, we test our model on an artifact-free histology dataset with a total 462 images sized at 256X256, and then compare the image similarities between reconstructed images and original images to evaluate the performance. 
+
+To evaluate your model performance, modify the relevant paths in test/eval.sh and then run:
+
+```
+cd test
+sh eval.sh
+```
+
+## Acknowledgement
