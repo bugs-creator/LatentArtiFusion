@@ -5,7 +5,7 @@ This is a latent space medical image restoration implementation based on https:/
 
 ## Environment Setup
 
-First, make sure you have torch 2+ and cuda included in your environment, then install the environment:
+First, make sure you have **torch 2+ with cuda** (Important! We only achieved GPU version) included in your environment, then install the environment:
 
 ```
 pip install -r requirements.txt
